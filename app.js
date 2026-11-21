@@ -1,7 +1,7 @@
 const $=id=>document.getElementById(id), esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>v.toLocaleLowerCase('ru').replace(/ё/g,'е').replace(/[^а-яa-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
-const link=s=>'<a target="_blank" rel="noopener" href="'+esc(s.url)+'">'+esc(s.source)+'</a>';
-const caseLink=s=>s.page&&!s.url.startsWith('https://neversleep-alfa-atlas.honeyforum65.chatgpt.site/case.pdf')?' · <a target="_blank" rel="noopener" href="https://neversleep-alfa-atlas.honeyforum65.chatgpt.site/case.pdf#page='+s.page+'">Кейс, стр. '+s.page+'</a>':'';
+const link=s=>'<a rel="noopener" href="'+esc(s.url)+'">'+esc(s.source)+'</a>';
+const caseLink=s=>s.page&&!s.url.startsWith('https://neversleep-alfa-atlas.honeyforum65.chatgpt.site/case.pdf')?' · <a rel="noopener" href="https://neversleep-alfa-atlas.honeyforum65.chatgpt.site/case.pdf#page='+s.page+'">Кейс, стр. '+s.page+'</a>':'';
 const tags=s=>'<div class="tags"><span class="tag">'+s.group+'</span><span>'+s.status+'</span>'+(s.restricted?'<span class="tag restricted">Исключение кейса</span>':'')+'</div>';
 const ids=['need','action','result'],labels=['Задача','Действие','Результат'];
 let selected=null;
